@@ -3,7 +3,7 @@ import telebot
 import openai
 
 # Получение токенов
-TELEGRAM_BOT_TOKEN = "8045705939:AAEbmg3L1EZ5W1cZ_L4_PKkCJnPmeXdnc7k"
+TELEGRAM_BOT_TOKEN = "8045705939:AAFvL0Ucrb-YVeMo7joOwMqIB5s0AA-5kHM"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 if not OPENAI_API_KEY:
@@ -14,7 +14,10 @@ openai.api_key = OPENAI_API_KEY
 
 @bot.message_handler(commands=['start'])
 def handle_start(message):
-    bot.send_message(message.chat.id, "👗 Привет! Я LookStylist. Напиши, что хочешь надеть — я подскажу стиль 🧠🛍.")
+    bot.send_message(
+        message.chat.id,
+        "👗 Привет! Я LookStylist. Напиши, что хочешь надеть — я подскажу стиль 🧠🛍."
+    )
 
 @bot.message_handler(func=lambda message: True)
 def handle_all(message):
@@ -34,4 +37,3 @@ def handle_all(message):
 if __name__ == '__main__':
     print("🟢 Bot is running via polling...")
     bot.infinity_polling()
-
